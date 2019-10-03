@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -24,10 +25,15 @@ public class MainActivity extends AppCompatActivity {
         final Button boton=findViewById(R.id.boton);
         Intent inte = new Intent(this,clase2.class);
         EditText pass = (EditText) findViewById(R.id.pass);
-
         String message = pass.getText().toString();
-        inte.putExtra(EXTRA_MESSAGE,message);
-        startActivity(inte);
+        String contra = "java";
+        if(contra.equals(message)) {
+
+            inte.putExtra(EXTRA_MESSAGE, message);
+            startActivity(inte);
+        }else{
+            Toast.makeText(this, "CONTRASEÑA INCORRECTA", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
